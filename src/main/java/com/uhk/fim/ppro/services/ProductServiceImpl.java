@@ -22,10 +22,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product saveOrUpdateProduct(Product product) {
         if (product != null) {
-            if (product.getId() == null) {
-                product.setId(getNextKey());
-            } else products.put(product.getId(), product);
-
+            if (product.getId() == null) product.setId(getNextKey());
+            products.put(product.getId(), product);
             return product;
         } else {
             throw new RuntimeException("Product can't be null.");
