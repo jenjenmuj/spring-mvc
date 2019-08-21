@@ -23,17 +23,13 @@ public class ProductController {
 
     @RequestMapping("/products")
     public String listProducts(Model model) {
-
         model.addAttribute("products", productService.listAllProducts());
-
         return "products";
     }
 
     @RequestMapping("/product/{id}")
     public String getProduct(@PathVariable Integer id, Model model) {
-
         model.addAttribute("product", productService.getProductById(id));
-
         return "product";
     }
 
@@ -55,4 +51,9 @@ public class ProductController {
         return "redirect:/product/" + savedProduct.getId();
     }
 
+    @RequestMapping("/product/delete/{id}")
+    public String delete(@PathVariable Integer id) {
+        productService.deleteProduct(id);
+        return "redirect:/products";
+    }
 }
