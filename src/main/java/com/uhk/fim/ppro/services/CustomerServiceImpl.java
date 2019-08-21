@@ -2,10 +2,12 @@ package com.uhk.fim.ppro.services;
 
 import com.uhk.fim.ppro.domain.Customer;
 import com.uhk.fim.ppro.domain.DomainObject;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 
+@Service
 public class CustomerServiceImpl extends AbstractMapService implements CustomerService {
 
     @Override
